@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALTRION · Operational Intelligence Platform</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+               RESET & BASE
+            ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0c14;
+            color: #f0f4fa;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ============================================================
+               GLASSMORPHISM UTILITY
+            ============================================================ */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* ============================================================
+               BUTTONS
+            ============================================================ */
+        .btn-primary {
+            display: inline-block;
+            background: #3b82f6;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #f0f4fa;
+            padding: 0.75rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ============================================================
+               NAVIGATION
+            ============================================================ */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #a0b4cc;
+        }
+
+        .nav-links a {
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        /* ============================================================
+               HERO
+            ============================================================ */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        /* Animated network background */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-bg canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 960px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.12);
+            color: #3b82f6;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            margin-bottom: 1.8rem;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #a0b4cc;
+            max-width: 760px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+               SECTIONS
+            ============================================================ */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #3b82f6;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #a0b4cc;
+            max-width: 720px;
+            line-height: 1.8;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================================
+               CARDS / GRID
+            ============================================================ */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2rem 1.8rem;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #a0b4cc;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+               FLOW / HOW IT WORKS
+            ============================================================ */
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .flow-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-item strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .flow-item small {
+            display: block;
+            font-size: 0.7rem;
+            color: #7a8aa3;
+            margin-top: 0.2rem;
+        }
+
+        .flow-arrow {
+            color: #3b82f6;
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+               INDUSTRY CARDS
+            ============================================================ */
+        .industry-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 1.5rem 1.5rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .industry-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .industry-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .industry-card p {
+            font-size: 0.85rem;
+            color: #7a8aa3;
+        }
+
+        /* ============================================================
+               TABLE
+            ============================================================ */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .compare-table th {
+            color: #a0b4cc;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compare-table td:first-child {
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check {
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        /* ============================================================
+               CONTACT
+            ============================================================ */
+        .contact-card {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+        }
+
+        .contact-card a {
+            color: #3b82f6;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #60a5fa;
+        }
+
+        /* ============================================================
+               FOOTER
+            ============================================================ */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5a6f8a;
+        }
+
+        /* ============================================================
+               RESPONSIVE
+            ============================================================ */
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .compare-table {
+                font-size: 0.8rem;
+            }
+
+            .compare-table th,
+            .compare-table td {
+                padding: 0.6rem 0.8rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* ============================================================
+               UTILITY
+            ============================================================ */
+        .gap-1 {
+            gap: 1rem;
+        }
+        .gap-2 {
+            gap: 2rem;
+        }
+        .mt-1 {
+            margin-top: 1rem;
+        }
+        .mt-2 {
+            margin-top: 2rem;
+        }
+        .mt-3 {
+            margin-top: 3rem;
+        }
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .border-bottom-light {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .bg-gradient-subtle {
+            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.06), transparent 70%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav>
+        <div class="logo">ALTRION<span>.</span></div>
+        <div class="nav-links">
+            <a href="#problem">Problem</a>
+            <a href="#platform">Platform</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#industries">Industries</a>
+            <a href="#vision">Vision</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#contact" class="btn-primary" style="padding:0.5rem 1.5rem; font-size:0.85rem;">Contact</a>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <canvas id="networkCanvas"></canvas>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">Operational Intelligence Platform</div>
+            <h1>
+                AI that transforms<br />
+                <span class="highlight">operational data into trusted decisions.</span>
+            </h1>
+            <p>
+                ALTRION is an Operational Intelligence Platform that ingests fragmented enterprise knowledge,
+                analyzes complex information through explainable AI reasoning, and delivers decision-ready
+                intelligence for mission-critical organizations.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Request a Meeting</a>
+                <a href="#" class="btn-secondary">Download Pitch Deck</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 2 — THE PROBLEM
+    ============================================================ -->
+    <section id="problem" class="border-bottom-light bg-gradient-subtle">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:800px;">
+                <span class="section-label">The Challenge</span>
+                <h2 class="section-title">From Information Overload to Decision Deficit</h2>
+                <p class="section-subtitle mx-auto">
+                    Organizations generate enormous volumes of operational information — yet they struggle to transform
+                    that information into decisions. Data is fragmented across silos, teams waste hours searching, and
+                    critical insights remain buried in unstructured documents.
+                </p>
+            </div>
+
+            <div class="grid-3 mt-3">
+                <div class="card text-center">
+                    <div class="icon">📄</div>
+                    <h3>Fragmented Knowledge</h3>
+                    <p>Information is scattered across documents, emails, databases, and legacy systems.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon">⏱️</div>
+                    <h3>Slowed Decisions</h3>
+                    <p>Teams spend hours searching, reading, and synthesizing before they can act.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon">⚠️</div>
+                    <h3>Hidden Risk</h3>
+                    <p>Contradictions, outdated data, and blind spots create operational vulnerabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 3 — WHAT IS ALTRION
+    ============================================================ -->
+    <section id="platform">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:800px;">
+                <span class="section-label">The Platform</span>
+                <h2 class="section-title">What is ALTRION?</h2>
+                <p class="section-subtitle mx-auto">
+                    ALTRION is <strong>not</strong> another AI assistant. It is an <strong>Operational Intelligence Platform</strong>
+                    built to support mission-critical decisions — from the enterprise to the edge.
+                </p>
+            </div>
+
+            <div class="grid-4 mt-3">
+                <div class="card text-center">
+                    <div class="icon">🔍</div>
+                    <h3>Retrieval</h3>
+                    <p>Ingests structured and unstructured data from any source.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon">📊</div>
+                    <h3>Analytics</h3>
+                    <p>Extracts patterns, relationships, and anomalies across systems.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon">🧠</div>
+                    <h3>Reasoning</h3>
+                    <p>Explainable AI that challenges its own conclusions before responding.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon">👤</div>
+                    <h3>Human Decision</h3>
+                    <p>AI recommends — humans decide. Always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 4 — HOW ALTRION WORKS
+    ============================================================ -->
+    <section id="how-it-works" class="border-bottom-light bg-gradient-subtle">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:700px;">
+                <span class="section-label">The Pipeline</span>
+                <h2 class="section-title">How ALTRION Works</h2>
+            </div>
+
+            <div class="flow">
+                <div class="flow-item">
+                    <strong>📡 Data Sources</strong>
+                    <small>Documents · Sensors · APIs · Emails</small>
+                </div>
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-item">
+                    <strong>🧩 Knowledge Layer</strong>
+                    <small>Unify · Normalize · Connect</small>
+                </div>
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-item">
+                    <strong>📈 Analytics</strong>
+                    <small>Patterns · Trends · Anomalies</small>
+                </div>
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-item">
+                    <strong>🧠 Reasoning Engine</strong>
+                    <small>TriCore: Analyst · Challenger · Synthesizer</small>
+                </div>
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-item">
+                    <strong>🎯 Operational Intelligence</strong>
+                    <small>Explainable · Actionable</small>
+                </div>
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-item">
+                    <strong>👤 Human Decision</strong>
+                    <small>AI recommends. Humans decide.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 5 — CORE CAPABILITIES
+    ============================================================ -->
+    <section id="capabilities">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:700px;">
+                <span class="section-label">Capabilities</span>
+                <h2 class="section-title">Core Capabilities</h2>
+            </div>
+
+            <div class="grid-3 mt-3">
+                <div class="card">
+                    <h3>Universal Data Ingestion</h3>
+                    <p>PDFs, Word, Excel, emails, databases, sensors, and legacy systems — all unified.</p>
+                </div>
+                <div class="card">
+                    <h3>Explainable AI</h3>
+                    <p>Every recommendation includes evidence, confidence, and alternative interpretations.</p>
+                </div>
+                <div class="card">
+                    <h3>Operational Analytics</h3>
+                    <p>Real-time pattern detection, anomaly identification, and risk analysis.</p>
+                </div>
+                <div class="card">
+                    <h3>Offline &amp; Edge Computing</h3>
+                    <p>Deploy in disconnected environments. Air-gapped, remote, and secure.</p>
+                </div>
+                <div class="card">
+                    <h3>Natural Language Interface</h3>
+                    <p>Query by voice or text. Get structured answers, not just search results.</p>
+                </div>
+                <div class="card">
+                    <h3>Human-in-the-Loop</h3>
+                    <p>AI suggests actions — the human retains final authority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 6 — INDUSTRIES
+    ============================================================ -->
+    <section id="industries" class="border-bottom-light bg-gradient-subtle">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:700px;">
+                <span class="section-label">Sectors</span>
+                <h2 class="section-title">Industries We Serve</h2>
+            </div>
+
+            <div class="grid-4 mt-3">
+                <div class="industry-card">
+                    <h4>Defense</h4>
+                    <p>Mission intelligence and decision support</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Critical Infrastructure</h4>
+                    <p>Resilience and risk management</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Energy</h4>
+                    <p>Operational continuity and regulatory compliance</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Utilities</h4>
+                    <p>Grid management and maintenance intelligence</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Emergency Response</h4>
+                    <p>Rapid situational awareness</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Industrial Operations</h4>
+                    <p>Manufacturing and logistics optimization</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Government</h4>
+                    <p>Policy and operational intelligence</p>
+                </div>
+                <div class="industry-card">
+                    <h4>Manufacturing</h4>
+                    <p>Quality, maintenance, and supply chain intelligence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 7 — WHY ALTRION
+    ============================================================ -->
+    <section id="why">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:700px;">
+                <span class="section-label">Comparison</span>
+                <h2 class="section-title">Why ALTRION?</h2>
+                <p class="section-subtitle mx-auto">
+                    Traditional AI assistants search documents. ALTRION delivers operational intelligence.
+                </p>
+            </div>
+
+            <div style="overflow-x:auto;">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Capability</th>
+                            <th>Traditional AI</th>
+                            <th>ALTRION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Function</td>
+                            <td>Document Search</td>
+                            <td><span class="check">✓</span> Operational Intelligence</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment</td>
+                            <td>Cloud-only</td>
+                            <td><span class="check">✓</span> Edge Ready · Offline Capable</td>
+                        </tr>
+                        <tr>
+                            <td>Reasoning</td>
+                            <td>Generic Answers</td>
+                            <td><span class="check">✓</span> Explainable AI Reasoning</td>
+                        </tr>
+                        <tr>
+                            <td>Decision Support</td>
+                            <td>Limited</td>
+                            <td><span class="check">✓</span> Full Human-in-the-Loop</td>
+                        </tr>
+                        <tr>
+                            <td>Transparency</td>
+                            <td>Low</td>
+                            <td><span class="check">✓</span> Evidence &amp; Confidence Included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 8 — VISION
+    ============================================================ -->
+    <section id="vision" class="border-bottom-light bg-gradient-subtle">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width:800px;">
+                <span class="section-label">Vision</span>
+                <h2 class="section-title" style="font-size:2.4rem;">
+                    We believe every mission-critical organization will eventually require an <span style="color:#3b82f6;">Operational Intelligence Layer</span>.
+                </h2>
+                <p class="section-subtitle mx-auto" style="font-size:1.1rem; margin-top:1.5rem;">
+                    Just as ERP transformed enterprise management, ALTRION aims to transform operational decision-making through trusted, explainable AI.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 9 — CONTACT
+    ============================================================ -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5rem;">Let’s talk.</h2>
+                <p style="color:#a0b4cc; margin-bottom:1.5rem;">
+                    Whether you're a mission-critical operator or an investor, we'd like to hear from you.
+                </p>
+                <p style="margin-bottom:0.5rem;">
+                    <a href="mailto:cesar.insightpulse@gmail.com">cesar.insightpulse@gmail.com</a>
+                </p>
+                <p>
+                    <a href="https://www.linkedin.com/in/cesarzurita/" target="_blank">LinkedIn</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer>
+        <p>&copy; 2026 ALTRION · All rights reserved.</p>
+    </footer>
+
+    <!-- ============================================================
+    NETWORK ANIMATION (Canvas)
+    ============================================================ -->
+    <script>
+        (function() {
+            const canvas = document.getElementById('networkCanvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            const NUM_PARTICLES = 80;
+            const CONNECTION_DISTANCE = 150;
+
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                width = rect.width;
+                height = rect.height;
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < NUM_PARTICLES; i++) {
+                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * 0.6,
+                        vy: (Math.random() - 0.5) * 0.6,
+                        r: Math.random() * 2 + 1,
+                    });
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Update & draw particles
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+                    ctx.fill();
+                }
+
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < CONNECTION_DISTANCE) {
+                            const alpha = 1 - (dist / CONNECTION_DISTANCE);
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${alpha * 0.25})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            function init() {
+                resize();
+                initParticles();
+                draw();
+            }
+
+            window.addEventListener('resize', () => {
+                resize();
+                initParticles();
+            });
+
+            init();
+        })();
+    </script>
+
+</body>
+</html>
