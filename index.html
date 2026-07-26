@@ -20,8 +20,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0c14;
-            color: #f0f4fa;
+            background: #f8f9fc;
+            color: #1a1f36;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -41,10 +41,10 @@
                GLASSMORPHISM UTILITY
             ============================================================ */
         .glass {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         /* ============================================================
@@ -52,7 +52,7 @@
             ============================================================ */
         .btn-primary {
             display: inline-block;
-            background: #3b82f6;
+            background: #1a1f36;
             color: #fff;
             padding: 0.75rem 2rem;
             border-radius: 40px;
@@ -65,26 +65,26 @@
         }
 
         .btn-primary:hover {
-            background: #2563eb;
+            background: #2d3550;
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             display: inline-block;
             background: transparent;
-            color: #f0f4fa;
+            color: #1a1f36;
             padding: 0.75rem 2rem;
             border-radius: 40px;
             font-weight: 600;
             font-size: 0.95rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.3);
         }
 
         /* ============================================================
@@ -105,7 +105,7 @@
             font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            color: #fff;
+            color: #1a1f36;
         }
 
         .logo span {
@@ -117,7 +117,7 @@
             gap: 2.5rem;
             font-size: 0.9rem;
             font-weight: 500;
-            color: #a0b4cc;
+            color: #4a5568;
         }
 
         .nav-links a {
@@ -125,7 +125,7 @@
         }
 
         .nav-links a:hover {
-            color: #fff;
+            color: #1a1f36;
         }
 
         .nav-actions {
@@ -146,22 +146,7 @@
             padding: 4rem 2rem 6rem;
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
-        }
-
-        /* Animated network background */
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .hero-bg canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
+            min-height: 70vh;
         }
 
         .hero-content {
@@ -172,7 +157,7 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(59, 130, 246, 0.12);
+            background: rgba(59, 130, 246, 0.10);
             color: #3b82f6;
             padding: 0.3rem 1.2rem;
             border-radius: 40px;
@@ -190,17 +175,18 @@
             line-height: 1.05;
             letter-spacing: -2px;
             margin-bottom: 1.5rem;
+            color: #1a1f36;
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #a0b4cc;
+            color: #4a5568;
             max-width: 760px;
             margin: 0 auto 2.5rem;
             line-height: 1.7;
@@ -235,11 +221,12 @@
             font-weight: 800;
             letter-spacing: -1px;
             margin-bottom: 1.2rem;
+            color: #1a1f36;
         }
 
         .section-subtitle {
             font-size: 1.2rem;
-            color: #a0b4cc;
+            color: #4a5568;
             max-width: 720px;
             line-height: 1.8;
         }
@@ -275,33 +262,37 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 20px;
             padding: 2rem 1.8rem;
-            transition: border-color 0.3s ease, background 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .card:hover {
             border-color: rgba(59, 130, 246, 0.3);
-            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         .card .icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
             display: block;
+            color: #3b82f6;
+            font-weight: 300;
         }
 
         .card h3 {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 0.6rem;
+            color: #1a1f36;
         }
 
         .card p {
             font-size: 0.95rem;
-            color: #a0b4cc;
+            color: #4a5568;
             line-height: 1.7;
         }
 
@@ -318,18 +309,20 @@
         }
 
         .flow-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 16px;
             padding: 1.2rem 1.8rem;
             text-align: center;
             min-width: 120px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .flow-item strong {
             display: block;
             font-size: 0.9rem;
             font-weight: 600;
+            color: #1a1f36;
         }
 
         .flow-item small {
@@ -349,27 +342,30 @@
                INDUSTRY CARDS
             ============================================================ */
         .industry-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 16px;
             padding: 1.5rem 1.5rem;
             text-align: center;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .industry-card:hover {
             border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         .industry-card h4 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.3rem;
+            color: #1a1f36;
         }
 
         .industry-card p {
             font-size: 0.85rem;
-            color: #7a8aa3;
+            color: #4a5568;
         }
 
         /* ============================================================
@@ -380,25 +376,31 @@
             border-collapse: collapse;
             margin: 2rem 0;
             font-size: 0.95rem;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .compare-table th,
         .compare-table td {
             padding: 1rem 1.2rem;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .compare-table th {
-            color: #a0b4cc;
+            color: #4a5568;
             font-weight: 600;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            background: #f8f9fc;
         }
 
         .compare-table td:first-child {
             font-weight: 600;
+            color: #1a1f36;
         }
 
         .compare-table tr:last-child td {
@@ -418,9 +420,10 @@
             margin: 0 auto;
             text-align: center;
             padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .contact-card a {
@@ -430,18 +433,18 @@
         }
 
         .contact-card a:hover {
-            color: #60a5fa;
+            color: #2563eb;
         }
 
         /* ============================================================
                FOOTER
             ============================================================ */
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
             padding: 2rem 2rem;
             text-align: center;
             font-size: 0.85rem;
-            color: #5a6f8a;
+            color: #7a8aa3;
         }
 
         /* ============================================================
@@ -549,11 +552,11 @@
         }
 
         .border-bottom-light {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         .bg-gradient-subtle {
-            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.06), transparent 70%);
+            background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
         }
     </style>
 </head>
@@ -580,11 +583,6 @@
     HERO
     ============================================================ -->
     <section class="hero" id="hero">
-        <!-- Animated Background -->
-        <div class="hero-bg">
-            <canvas id="networkCanvas"></canvas>
-        </div>
-
         <div class="hero-content">
             <div class="hero-badge">Operational Intelligence Platform</div>
             <h1>
@@ -620,17 +618,17 @@
 
             <div class="grid-3 mt-3">
                 <div class="card text-center">
-                    <div class="icon">📄</div>
+                    <div class="icon">1</div>
                     <h3>Fragmented Knowledge</h3>
                     <p>Information is scattered across documents, emails, databases, and legacy systems.</p>
                 </div>
                 <div class="card text-center">
-                    <div class="icon">⏱️</div>
+                    <div class="icon">2</div>
                     <h3>Slowed Decisions</h3>
                     <p>Teams spend hours searching, reading, and synthesizing before they can act.</p>
                 </div>
                 <div class="card text-center">
-                    <div class="icon">⚠️</div>
+                    <div class="icon">3</div>
                     <h3>Hidden Risk</h3>
                     <p>Contradictions, outdated data, and blind spots create operational vulnerabilities.</p>
                 </div>
@@ -654,22 +652,22 @@
 
             <div class="grid-4 mt-3">
                 <div class="card text-center">
-                    <div class="icon">🔍</div>
+                    <div class="icon">01</div>
                     <h3>Retrieval</h3>
                     <p>Ingests structured and unstructured data from any source.</p>
                 </div>
                 <div class="card text-center">
-                    <div class="icon">📊</div>
+                    <div class="icon">02</div>
                     <h3>Analytics</h3>
                     <p>Extracts patterns, relationships, and anomalies across systems.</p>
                 </div>
                 <div class="card text-center">
-                    <div class="icon">🧠</div>
+                    <div class="icon">03</div>
                     <h3>Reasoning</h3>
                     <p>Explainable AI that challenges its own conclusions before responding.</p>
                 </div>
                 <div class="card text-center">
-                    <div class="icon">👤</div>
+                    <div class="icon">04</div>
                     <h3>Human Decision</h3>
                     <p>AI recommends — humans decide. Always.</p>
                 </div>
@@ -689,37 +687,37 @@
 
             <div class="flow">
                 <div class="flow-item">
-                    <strong>📡 Data Sources</strong>
+                    <strong>Data Sources</strong>
                     <small>Documents · Sensors · APIs · Emails</small>
                 </div>
                 <span class="flow-arrow">→</span>
 
                 <div class="flow-item">
-                    <strong>🧩 Knowledge Layer</strong>
+                    <strong>Knowledge Layer</strong>
                     <small>Unify · Normalize · Connect</small>
                 </div>
                 <span class="flow-arrow">→</span>
 
                 <div class="flow-item">
-                    <strong>📈 Analytics</strong>
+                    <strong>Analytics</strong>
                     <small>Patterns · Trends · Anomalies</small>
                 </div>
                 <span class="flow-arrow">→</span>
 
                 <div class="flow-item">
-                    <strong>🧠 Reasoning Engine</strong>
+                    <strong>Reasoning Engine</strong>
                     <small>TriCore: Analyst · Challenger · Synthesizer</small>
                 </div>
                 <span class="flow-arrow">→</span>
 
                 <div class="flow-item">
-                    <strong>🎯 Operational Intelligence</strong>
+                    <strong>Operational Intelligence</strong>
                     <small>Explainable · Actionable</small>
                 </div>
                 <span class="flow-arrow">→</span>
 
                 <div class="flow-item">
-                    <strong>👤 Human Decision</strong>
+                    <strong>Human Decision</strong>
                     <small>AI recommends. Humans decide.</small>
                 </div>
             </div>
@@ -889,8 +887,8 @@
     <section id="contact">
         <div class="container">
             <div class="contact-card">
-                <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5rem;">Let’s talk.</h2>
-                <p style="color:#a0b4cc; margin-bottom:1.5rem;">
+                <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5rem; color:#1a1f36;">Let’s talk.</h2>
+                <p style="color:#4a5568; margin-bottom:1.5rem;">
                     Whether you're a mission-critical operator or an investor, we'd like to hear from you.
                 </p>
                 <p style="margin-bottom:0.5rem;">
@@ -909,94 +907,6 @@
     <footer>
         <p>&copy; 2026 ALTRION · All rights reserved.</p>
     </footer>
-
-    <!-- ============================================================
-    NETWORK ANIMATION (Canvas)
-    ============================================================ -->
-    <script>
-        (function() {
-            const canvas = document.getElementById('networkCanvas');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
-            const NUM_PARTICLES = 80;
-            const CONNECTION_DISTANCE = 150;
-
-            function resize() {
-                const rect = canvas.parentElement.getBoundingClientRect();
-                width = rect.width;
-                height = rect.height;
-                canvas.width = width;
-                canvas.height = height;
-            }
-
-            function initParticles() {
-                particles = [];
-                for (let i = 0; i < NUM_PARTICLES; i++) {
-                    particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
-                        vx: (Math.random() - 0.5) * 0.6,
-                        vy: (Math.random() - 0.5) * 0.6,
-                        r: Math.random() * 2 + 1,
-                    });
-                }
-            }
-
-            function draw() {
-                ctx.clearRect(0, 0, width, height);
-
-                // Update & draw particles
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    p.x += p.vx;
-                    p.y += p.vy;
-
-                    if (p.x < 0 || p.x > width) p.vx *= -1;
-                    if (p.y < 0 || p.y > height) p.vy *= -1;
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-                    ctx.fill();
-                }
-
-                // Draw connections
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-
-                        if (dist < CONNECTION_DISTANCE) {
-                            const alpha = 1 - (dist / CONNECTION_DISTANCE);
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(59, 130, 246, ${alpha * 0.25})`;
-                            ctx.lineWidth = 0.8;
-                            ctx.stroke();
-                        }
-                    }
-                }
-
-                requestAnimationFrame(draw);
-            }
-
-            function init() {
-                resize();
-                initParticles();
-                draw();
-            }
-
-            window.addEventListener('resize', () => {
-                resize();
-                initParticles();
-            });
-
-            init();
-        })();
-    </script>
 
 </body>
 </html>
